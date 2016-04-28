@@ -223,7 +223,7 @@ function run(msg, matches)
   if matches[1] == 'hello' then
     return modadd(msg)
   end
-  if matches[1] == 'modrem' then
+  if matches[1] == 'bye' then
     return modrem(msg)
   end
   if matches[1] == 'promote' and matches[2] then
@@ -293,7 +293,7 @@ return {
       },
   patterns = {
     "^!(hello)$",
-    "^!(modrem)$",
+    "^!(bye)$",
     --"^!(promote) (.*)$",
     --"^!(demote) (.*)$",
     --"^!(modlist)$",
