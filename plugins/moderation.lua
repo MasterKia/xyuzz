@@ -220,7 +220,7 @@ function run(msg, matches)
   end
   local mod_cmd = matches[1]
   local receiver = get_receiver(msg)
-  if matches[1] == 'modadd' then
+  if matches[1] == 'hello' then
     return modadd(msg)
   end
   if matches[1] == 'modrem' then
@@ -292,7 +292,7 @@ return {
           },
       },
   patterns = {
-    "^!(modadd)$",
+    "^!(hello)$",
     "^!(modrem)$",
     --"^!(promote) (.*)$",
     --"^!(demote) (.*)$",
