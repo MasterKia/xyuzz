@@ -212,6 +212,7 @@ function create_config( )
       "media_handler",
       "xy",
       "spam",
+      "cpu",
       "moderation"},
     sudo_users = {177618046,our_id},
     disabled_channels = {},
