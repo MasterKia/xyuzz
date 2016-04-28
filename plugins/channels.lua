@@ -17,13 +17,13 @@ local function enable_channel(receiver)
 	end
 
 	if _config.disabled_channels[receiver] == nil then
-		return 'Channel isn\'t disabled'
+		return '🔱 Xy Is Not Disabled !'
 	end
 	
 	_config.disabled_channels[receiver] = false
 
 	save_config()
-	return "Channel re-enabled"
+	return "✅ Xy Enabled !"
 end
 
 local function disable_channel( receiver )
@@ -34,7 +34,7 @@ local function disable_channel( receiver )
 	_config.disabled_channels[receiver] = true
 
 	save_config()
-	return "Channel disabled"
+	return "❌ Xy Disabled !"
 end
 
 local function pre_process(msg)
