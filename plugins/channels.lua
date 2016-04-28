@@ -58,11 +58,11 @@ end
 local function run(msg, matches)
 	local receiver = get_receiver(msg)
 	-- Enable a channel
-	if matches[1] == 'enable' then
+	if matches[1] == 'on' then
 		return enable_channel(receiver)
 	end
 	-- Disable a channel
-	if matches[1] == 'disable' then
+	if matches[1] == 'off' then
 		return disable_channel(receiver)
 	end
 end
