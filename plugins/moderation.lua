@@ -18,7 +18,7 @@ local function check_member(cb_extra, success, result)
                   }
             }
           save_data(_config.moderation.data, data)
-          return send_large_msg(receiver, 'You have been promoted as moderator for this group.')
+          return send_large_msg(receiver, '')
       end
     end
 end
@@ -30,7 +30,7 @@ local function automodadd(msg)
       chat_info(receiver, check_member,{receiver=receiver, data=data, msg = msg})
   else
       if data[tostring(msg.to.id)] then
-        return 'Group is already added.'
+        return ''
       end
       if msg.from.username then
           username = msg.from.username
@@ -48,18 +48,18 @@ local function automodadd(msg)
               }
           }
       save_data(_config.moderation.data, data)
-      return 'Group has been added, and @'..username..' has been promoted as moderator for this group.'
+      return ''
    end
 end
 
 local function modadd(msg)
     -- superuser and admins only (because sudo are always has privilege)
     if not is_admin(msg) then
-        return "You're not admin"
+        return ""
     end
     local data = load_data(_config.moderation.data)
   if data[tostring(msg.to.id)] then
-    return 'Group is already added.'
+    return ''
   end
     -- create data array in moderation.json
   data[tostring(msg.to.id)] = {
@@ -73,31 +73,31 @@ local function modadd(msg)
       }
   save_data(_config.moderation.data, data)
 
-  return 'Group has been added.'
+  return ''
 end
 
 local function modrem(msg)
     -- superuser and admins only (because sudo are always has privilege)
     if not is_admin(msg) then
-        return "You're not admin"
+        return ""
     end
     local data = load_data(_config.moderation.data)
     local receiver = get_receiver(msg)
   if not data[tostring(msg.to.id)] then
-    return 'Group is not added.'
+    return ''
   end
 
   data[tostring(msg.to.id)] = nil
   save_data(_config.moderation.data, data)
 
-  return 'Group has been removed'
+  return ''
 end
 
 local function promote(receiver, member_username, member_id)
     local data = load_data(_config.moderation.data)
     local group = string.gsub(receiver, 'chat#id', '')
   if not data[group] then
-    return send_large_msg(receiver, 'Group is not added.')
+    return send_large_msg(receiver, '')
   end
   if data[group]['moderators'][tostring(member_id)] then
     return send_large_msg(receiver, member_username..' is already a moderator.')
@@ -111,7 +111,7 @@ local function demote(receiver, member_username, member_id)
     local data = load_data(_config.moderation.data)
     local group = string.gsub(receiver, 'chat#id', '')
   if not data[group] then
-    return send_large_msg(receiver, 'Group is not added.')
+    return send_large_msg(receiver, '')
   end
   if not data[group]['moderators'][tostring(member_id)] then
     return send_large_msg(receiver, member_username..' is not a moderator.')
