@@ -181,7 +181,7 @@ end
 local function modlist(msg)
     local data = load_data(_config.moderation.data)
   if not data[tostring(msg.to.id)] then
-    return 'Group is not added.'
+    return ''
   end
   -- determine if table is empty
   if next(data[tostring(msg.to.id)]['moderators']) == nil then --fix way
