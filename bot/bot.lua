@@ -209,7 +209,6 @@ function create_config( )
     enabled_plugins = {
       "groupmanager",
       "plugins",
-      "channels",
       "media_handler",
       "xy",
       "spam",
