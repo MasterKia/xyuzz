@@ -68,10 +68,10 @@ local function run(msg, matches)
 end
 
 return {
-	description = "Plugin to manage channels. Enable or disable channel.", 
+	description = "Plugin To Enable/Disable Groups .", 
 	usage = {
-		"!channel enable: enable current channel",
-		"!channel disable: disable current channel" },
+		"!xy on: Enable Xy Current Group",
+		"!xy off: Disable Xy Current Group" },
 	patterns = {
 		"^!xy? (on)",
 		"^!xy? (off)" }, 
@@ -80,3 +80,5 @@ return {
 	moderated = true,
 	pre_process = pre_process
 }
+-- Xy source by @MrTorento
+-- Don't Copy :( !
