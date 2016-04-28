@@ -17,13 +17,13 @@ local function enable_channel(receiver)
 	end
 
 	if _config.disabled_channels[receiver] == nil then
-		return 'Channel isn\'t disabled'
+		return '🔱 Xy Is Not Disabled !'
 	end
 	
 	_config.disabled_channels[receiver] = false
 
 	save_config()
-	return "Channel re-enabled"
+	return "✅ Xy Enabled !"
 end
 
 local function disable_channel( receiver )
@@ -34,7 +34,7 @@ local function disable_channel( receiver )
 	_config.disabled_channels[receiver] = true
 
 	save_config()
-	return "Channel disabled"
+	return "❌ Xy Disabled !"
 end
 
 local function pre_process(msg)
@@ -43,7 +43,7 @@ local function pre_process(msg)
 	-- If sender is moderator then re-enable the channel
 	--if is_sudo(msg) then
 	if is_momod(msg) then
-	  if msg.text == "!channel enable" then
+	  if msg.text == "!xy on" then
 	    enable_channel(receiver)
 	  end
 	end
@@ -58,11 +58,11 @@ end
 local function run(msg, matches)
 	local receiver = get_receiver(msg)
 	-- Enable a channel
-	if matches[1] == 'enable' then
+	if matches[1] == 'on' then
 		return enable_channel(receiver)
 	end
 	-- Disable a channel
-	if matches[1] == 'disable' then
+	if matches[1] == 'off' then
 		return disable_channel(receiver)
 	end
 end
