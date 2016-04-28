@@ -316,11 +316,11 @@ return {
     "!group settings : Show group settings"
     },
   patterns = {
-    "^!(creategroup) (.*)$",
-    "^!(setabout) (.*)$",
-    "^!(about)$",
-    "^!(setrules) (.*)$",
-    "^!(rules)$",
+    --"^!(creategroup) (.*)$",
+    --"^!(setabout) (.*)$",
+    --"^!(about)$",
+    --"^!(setrules) (.*)$",
+    --"^!(rules)$",
     "^!(setname) (.*)$",
     "^!(setphoto)$",
     "^!(group) (lock) (.*)$",
