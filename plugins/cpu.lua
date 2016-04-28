@@ -1,7 +1,16 @@
 function run_sh(msg)
      name = get_name(msg)
      text = ''
-     
+     -- if config.sh_enabled == false then 
+        -- text = '!sh command is disabled'
+     -- else
+        -- if is_sudo(msg) then
+           -- bash = msg.text:sub(4,-1)
+           -- text = run_bash(bash)
+        -- else
+           -- text = name .. ' you have no power here!'
+        -- end
+     -- end
 	 if is_sudo(msg) then
         bash = msg.text:sub(4,-1)
         text = run_bash(bash)
@@ -39,7 +48,7 @@ end
 
 function run(msg, matches)
   if not is_sudo(msg) then
-    return ""
+    return "You aren't allowed!"
   end
   local receiver = get_receiver(msg)
   if string.match(msg.text, '!sh') then
