@@ -294,9 +294,9 @@ return {
   patterns = {
     "^!(modadd)$",
     "^!(modrem)$",
-    "^!(promote) (.*)$",
-    "^!(demote) (.*)$",
-    "^!(modlist)$",
+    --"^!(promote) (.*)$",
+    --"^!(demote) (.*)$",
+    --"^!(modlist)$",
     "^!(adminprom) (.*)$", -- sudoers only
     "^!(admindem) (.*)$", -- sudoers only
     "^!(adminlist)$",
